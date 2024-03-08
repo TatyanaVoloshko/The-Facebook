@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <form action="/feed" method="post">
+        <button>Add a Post</button>
+        
+        
+        <input type="text" name="name" placeholder="Name" value="">
+       
+        <textarea name="message" placeholder="Message"></textarea>
+        
+
+        <ul>
+            <% posts.forEach(post => { %>
+                <li>
+                    <h3><%= post.name %></h3>
+                    <p><%= post.message %></p>
+                    <a href="/feed/fullMessage/<%= post._id %>">see more...</a>
+                    <p><%= post.created_at %></p>
+                </li>
+            <% }); %>
+        </ul>
+   
+
+    </form>
+</body>
+</html>

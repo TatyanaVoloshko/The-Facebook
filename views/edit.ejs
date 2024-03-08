@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+</head>
+<body>
+    <form action="/feed/updatePost/<%= post._id%>" method="post" class="add-new">
+    <input type="text" name="name" value="<%= post.name %>"  class="input">
+    <textarea name="message"><%= post.message %></textarea>
+
+    <button class="btn">Submit</button>
+   </form>
+</body>
+</html>
