@@ -10,12 +10,19 @@
         <button>Add a Post</button>
         
         
-        <input type="text" name="name" placeholder="Name" value="">
+        <input type="text" name="name" placeholder="Name">
+         <% if (err) { %>
+            <p><%= err["name"] %></p>
+            <% } %>
        
         <textarea name="message" placeholder="Message"></textarea>
+         <% if (err) { %>
+            <p><%= err["message"] %></p>
+            <% } %>
         
 
         <ul>
+            <% if (posts.length > 0) { %>
             <% posts.forEach(post => { %>
                 <li>
                     <h3><%= post.name %></h3>
@@ -24,6 +31,7 @@
                     <p><%= post.created_at %></p>
                 </li>
             <% }); %>
+            <% } %>
         </ul>
    
 

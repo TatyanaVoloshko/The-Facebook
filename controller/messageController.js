@@ -4,7 +4,7 @@ const getHomePage = (req, res) => {
   feed
     .find()
     .sort({ created_at: -1 })
-    .then((posts) => res.render("index", { posts }))
+    .then((posts) => res.render("index", { posts, err: "" }))
     .catch((err) => console.log(err))
 };
 
@@ -12,7 +12,8 @@ const postNew = (req, res) => {
   const newMessage = new feed(req.body)
    newMessage.save()
     .then(() => res.redirect("/feed"))
-    .catch((err) => res.render('index', {err:err.errors}))
+    .catch((err) => res.render('index', { err: err.errors, posts: ""}))
+
 };
 
 const getfullMessage = (req, res) => {
